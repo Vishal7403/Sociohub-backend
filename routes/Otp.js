@@ -8,14 +8,13 @@ require("dotenv").config();
 async function Mailer(email, code) {
   let transporter = nodemailer.createTransport({
     service: "hotmail",
-    host: "localhost",
     auth: {
-      user: `${process.env.USERNAME}`,
+      user: `${process.env.USERID}`,
       pass: `${process.env.PASSWORD}`,
     },
   });
   var mailOptions = {
-    from: "sociohub@outlook.com",
+    from: `${process.env.USERID}`,
     to: email,
     subject: "Forget Password for Sociohub account",
     text: `Hello user, otp to reset your password is ${code}.
@@ -48,7 +47,7 @@ route.get("/forgotPassword/:id", async (req, res) => {
           email: id,
           code: code,
           expireAt: new Date().getTime() + 900 * 1000,
-        }).lean();
+        })
         Mailer(id, code);
         return res
           .status(200)
