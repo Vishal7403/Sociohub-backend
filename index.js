@@ -62,7 +62,7 @@ connectToMongo();
 server.listen(port, () => {
   console.log("sever connected");
 });*/
-connectToMongo();
+//connectToMongo();
 app.listen(port, () => {
   console.log("sever connected");
 });
