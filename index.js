@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const http = require("http");
+/*const http = require("http");
 const socketio = require("socket.io");
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
     origin: "http://localhost:3000",
   },
-});
+});*/
 const { UserRoute } = require("./routes/auth");
 const { PostsRoute } = require("./routes/Posts");
 const { CommentsRoute } = require("./routes/Comments");
@@ -26,7 +26,7 @@ app.use("/api/chat", ChatRoute);
 app.use("/api/otp", OtpRoute);
 const { connectToMongo } = require("./db");
 const port = process.env.PORT || 7878;
-let users = [];
+/*let users = [];
 const addUser = (SocketId, UserId) => {
   !users.some((user) => user.UserId === UserId) &&
     users.push({ UserId, SocketId });
@@ -60,5 +60,9 @@ io.on("connection", (socket) => {
 
 connectToMongo();
 server.listen(port, () => {
+  console.log("sever connected");
+});*/
+connectToMongo();
+app.listen(port, () => {
   console.log("sever connected");
 });
