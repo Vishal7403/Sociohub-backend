@@ -6,6 +6,7 @@ const connectToMongo = async () => {
   try {
     mongoose.connect(mongoURI, () => {
       console.log("connected");
+      console.log(mongoose.connection.db);
     });
   } catch (e) {
     console.log(e);
