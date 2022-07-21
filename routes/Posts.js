@@ -30,7 +30,7 @@ route.post(
           metadata: contentType,
         },
       });
-      return res.status(201).json({ msg: "succesfully posted" });
+      return res.status(201).json({ msg: "succesfully posted" ,post:Post});
     } catch (err) {
       return res.status(400).json({ error: "server error", message: err });
     }
