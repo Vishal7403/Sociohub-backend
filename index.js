@@ -6,14 +6,14 @@ const socketio = require("socket.io");
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
   },
 });
 const { UserRoute } = require("./routes/auth");
 const { PostsRoute } = require("./routes/Posts");
 const { CommentsRoute } = require("./routes/Comments");
 const { ConversationRoute } = require("./routes/Conversation");
-const { ChatRoute } = require("./routes/Chats");
+const { ChatRoute } = require("./routes/chats");
 const { OtpRoute } = require("./routes/Otp");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
