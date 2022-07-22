@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 require("dotenv").config();
 async function Mailer(email, code) {
   let transporter = nodemailer.createTransport({
-    service: "hotmail",
+    service: "gmail",
     auth: {
       user: `${process.env.USERID}`,
       pass: `${process.env.PASSWORD}`,
